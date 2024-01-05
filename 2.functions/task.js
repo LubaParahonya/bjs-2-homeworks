@@ -3,19 +3,19 @@ function getArrayParams(...arr) {
   let min = arr[0];
   let count = 0
   for(let i in arr){
-   if(arr[i] > arr[i-1]) {
+   if(arr[i] > max) {
      max = arr[i]   
    }
-   if(arr[i] < arr[i-1]) {
+   if(arr[i] < min) {
       min = arr[i]   
     }
    count += arr[i];
-   
+
   }
    avg = +((count/arr.length).toFixed(2))
    let params = {}
-   params.max = max
    params.min = min
+   params.max = max
    params.avg = avg
    return console.log(params)
  }
