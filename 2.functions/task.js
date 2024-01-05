@@ -66,8 +66,12 @@ function differenceEvenOddWorker(...arr) {
        return average = event/ count
     }
 
-function makeWork (arrOfArr, func) {
-
-}
-
-getArrayParams(1, 2, 3, 5)
+    function makeWork (arrOfArr, func) {
+      let maxWorkerResult = func(...arrOfArr[0])
+      let i
+      for(i in arrOfArr){
+        maxWorkerResult = Math.max(maxWorkerResult, func(...arrOfArr[i]))
+      }
+     
+      return maxWorkerResult
+    }
