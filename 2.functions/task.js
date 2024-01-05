@@ -22,24 +22,35 @@ function getArrayParams(...arr) {
 
 
  function summElementsWorker(...arr) {
-  arr = arr.reduce(function(sum, elem){
-    return sum += elem
-  })
-   console.log(arr)
+  if(arr.length > 0) {
+ arr = arr.reduce(function(sum, elem){
+   return sum += elem
+ })
+  } else {
+    arr = 0
+  }
+  return console.log(arr) 
+ 
 }
 
 function differenceMaxMinWorker(...arr) {
-  let i
-  let max = arr[0]
-  let min = arr[0]
-  for(i in arr){
-    max = Math.max(max, arr[i])
-    min = Math.min(min, arr[i])  }
-  difference = max - min
-  return difference
-}
+  if(arr.length > 0){
+    let i
+    let max = arr[0]
+    let min = arr[0]
+    for(i in arr){
+      max = Math.max(max, arr[i])
+      min = Math.min(min, arr[i])  }
+    difference = max - min
+    }
+    else {
+      difference = 0
+    }
+    return difference
+  }
 
-function differenceEvenOddWorker(...arr) {
+  function differenceEvenOddWorker(...arr) {
+    if(arr.length > 0) {
   let evenSum = 0;
   let oddSum = 0;
   let i;
@@ -50,21 +61,31 @@ function differenceEvenOddWorker(...arr) {
         oddSum += arr[i]
       }
     }
-   return diff = evenSum - oddSum
+   diff = evenSum - oddSum }
+    else {
+      diff = 0
+    }
+    return diff
   }
+  
 
   function averageEvenElementsWorker(...arr) {
-    let event = 0;
-    let i;
-    let count = 0;
-      for(i in arr){
-        if(arr[i]%2 === 0){
-          event += arr[i]
-          count ++
-        }
+    if(arr.length > 0) {
+  let event = 0;
+  let i;
+  let count = 0;
+    for(i in arr){
+      if(arr[i]%2 === 0){
+        event += arr[i]
+        count ++
       }
-       return average = event/ count
     }
+     average = event/ count}
+    else {
+        average = 0
+    }
+    return average
+  }
 
     function makeWork (arrOfArr, func) {
       let maxWorkerResult = func(...arrOfArr[0])
