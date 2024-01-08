@@ -85,7 +85,7 @@ function differenceMaxMinWorker(...arr) {
     function makeWork (arrOfArr, func) {
       let maxWorkerResult = func(...arrOfArr[0])
       let i;
-      for(i = 0; i < arr.length; i++){
+      for(i = 0; i < arrOfArr.length; i++){
         maxWorkerResult = Math.max(maxWorkerResult, func(...arrOfArr[i]));
       }
 
