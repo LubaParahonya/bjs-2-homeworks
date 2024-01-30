@@ -45,7 +45,7 @@
       return  new Triangle(a, b, c)
     }
     catch(arr){
-      console.log(arr)
+      return arr
     }
   
   }
