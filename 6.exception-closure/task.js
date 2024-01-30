@@ -1,9 +1,9 @@
 ﻿function parseCount (num){
     testNum = Number.parseFloat(num)
-    if(isNaN(testNum) === true){
+    if(isNaN(testNum)){
       throw new Error("Невалидное значение")
       } 
-    return console.log(Number.parseFloat(num))
+    return testNum
   }
   
   
@@ -13,7 +13,7 @@
       return parseCount(num)
     }
     catch(arr){
-      return console.log(arr)
+      return arr
     }
   }
 
