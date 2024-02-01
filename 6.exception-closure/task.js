@@ -40,20 +40,18 @@
   }
   
   
-  function getTriangle(a, b, c){
-    try{
-      return  new Triangle(a, b, c)
+  function getTriangle(a, b, c) {
+    try {
+        return new Triangle(a, b, c);
+    } catch (error) {
+        let arrTriangle = {
+            getArea() {
+                return 'Ошибка! Треугольник не существует';
+            },
+            getPerimeter() {
+                return 'Ошибка! Треугольник не существует';
+            }
+        };
+        return arrTriangle;
     }
-    catch(arr){
-      let arrTriangle = {
-        getArea() {
-            return 'Ошибка! Треугольник не существует';
-        },
-        getPerimeter() {
-            return 'Ошибка! Треугольник не существует';
-        }
-
-    }
-    return arrTriangle
-  }
 }
