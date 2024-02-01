@@ -32,9 +32,9 @@ class Triangle {
       return this.a + this.b + this.c;
   }
   get area () {
-      let p = (this.a + this.b + this.c) / 2;
-      let ar = Math.round(1000 * Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c)) + Number.EPSILON) / 1000;
-      return ar;
+      let halfPerimeter = (this.a + this.b + this.c) / 2;
+      let area  =  Math.sqrt(halfPerimeter * (halfPerimeter - this.a) * (halfPerimeter - this.b) * (halfPerimeter - this.c))
+      return +area.toFixed(3);;
   }
 }
 
