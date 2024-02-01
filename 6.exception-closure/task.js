@@ -17,18 +17,20 @@
     }
   }
 
-  class Triangle{
-    constructor(a, b, c){
-      this.a = a
-      this.b = b
-      this.c = c
-      if(a + b < c || a + c < b || b + c <a){
-        throw new Error("Треугольник с такими сторонами не существует")
-      }
+  class Triangle {
+    constructor(a, b, c) {
+        if(((a + b) <= c) || ((a + c) <= b) || ((b + c) <= a)) {
+            throw new Error("Треугольник с такими сторонами не существует");
+        }
+        else {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
     }
-  
-    get perimeter(){
-      return this.a + this.b + this.c
+    get perimeter() {
+        let p = (this.a + this.b + this.c);
+        return p;
     }
   
     get area(){
