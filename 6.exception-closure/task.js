@@ -32,7 +32,7 @@
     }
   
     get area(){
-      palfPerimeter = this.perimeter/2
+      palfPerimeter = this.a + this.b + this.c/2
       areaTriangle = +Math.sqrt(palfPerimeter * (palfPerimeter - this.a) * (palfPerimeter - this.b) * (palfPerimeter - this.c)).toFixed(2)
       return areaTriangle
     }
