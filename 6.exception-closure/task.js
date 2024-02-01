@@ -32,7 +32,7 @@
     }
   
     get area(){
-      palfPerimeter = this.perimeter()/2
+      palfPerimeter = this.perimeter/2
       areaTriangle = +Math.sqrt(palfPerimeter * (palfPerimeter - this.a) * (palfPerimeter - this.b) * (palfPerimeter - this.c)).toFixed(2)
       return areaTriangle
     }
@@ -40,18 +40,20 @@
   }
   
   
-  function getTriangle(a, b, c) {
+  function getTriangle (a, b, c) {
     try {
         return new Triangle(a, b, c);
-    } catch (error) {
-        let arrTriangle = {
-            getArea() {
-                return 'Ошибка! Треугольник не существует';
-            },
-            getPerimeter() {
-                return 'Ошибка! Треугольник не существует';
-            }
-        };
-        return arrTriangle;
     }
+    catch (error) {
+        let err = {
+            get perimeter() {
+               return "Ошибка! Треугольник не существует";
+            },
+            get area() {
+               return "Ошибка! Треугольник не существует";
+            }
+        }
+        return err;
+    }
+    
 }
