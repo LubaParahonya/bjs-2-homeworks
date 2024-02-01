@@ -29,8 +29,7 @@ class Triangle {
       
   }
   get perimeter() {
-      let p = (this.a + this.b + this.c);
-      return p;
+      return this.a + this.b + this.c;
   }
   get area () {
       let p = (this.a + this.b + this.c) / 2;
