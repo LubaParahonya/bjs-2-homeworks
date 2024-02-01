@@ -33,13 +33,12 @@
         return p;
     }
   
-    get area(){
-      palfPerimeter = this.a + this.b + this.c/2
-      areaTriangle = +Math.sqrt(palfPerimeter * (palfPerimeter - this.a) * (palfPerimeter - this.b) * (palfPerimeter - this.c)).toFixed(2)
-      return areaTriangle
-    }
-    
+    get area () {
+      let p = (this.a + this.b + this.c) / 2;
+      let ar = Math.round(1000 * Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c)) + Number.EPSILON) / 1000;
+      return ar;
   }
+}
   
   
   function getTriangle (a, b, c) {
