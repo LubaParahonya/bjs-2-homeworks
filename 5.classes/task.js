@@ -1,4 +1,5 @@
 class PrintEditionItem {
+
   constructor(name, releaseDate, pagesCount, state, type){
     this.name = name
     this.releaseDate = releaseDate
@@ -89,17 +90,17 @@ class Library {
   }
 
 
-  giveBookByName(bookName){
+giveBookByName(bookName){
     for(let i = 0; i< this.books.length; i++){
       if(this.books[i].name === bookName){
-        let returnBook = this.books[i]
-        this.books =  this.books.slice(returnBook, 1)
+        let returnBook = this.books.splice(i, 1)
         return returnBook
       }
     }
     return null 
   } 
 }
+
 
 class Student {
   constructor(name){
