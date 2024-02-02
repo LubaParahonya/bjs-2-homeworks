@@ -93,7 +93,7 @@ class Library {
     for(let i = 0; i< this.books.length; i++){
       if(this.books[i].name === bookName){
         let returnBook = this.books[i]
-        this.books.slice(i, 1)
+        this.books =  this.books.slice(returnBook, 1)
         return returnBook
       }
     }
