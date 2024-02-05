@@ -24,7 +24,7 @@ class AlarmClock {
          
          
         }
-    }
+    
 
     removeClock(time){
         const result = this.alarmCollection.filter((time) => this.alarmCollection.time === time)
