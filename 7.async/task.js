@@ -6,7 +6,6 @@ class AlarmClock {
     }
 
     addClock(time, callback){
-        const canCall = true
          if( typeof time === "undefined" || typeof callback === "undefined" ){
             throw new Error("Отсутствуют обязательные аргументы");
          }
@@ -16,7 +15,7 @@ class AlarmClock {
             }
          }
          
-         let newClock = {time, callback, canCall}
+         let newClock = {time: time, callback: callback, canCall: true}
          this.alarmCollection.push(newClock);
         }
 
