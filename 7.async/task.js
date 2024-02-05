@@ -6,21 +6,22 @@ class AlarmClock {
     }
 
     addClock(time, callbackFunc){
-         if( typeof time === "undefined" || typeof callbackFunc === "undefined" ){
-            throw new Error("Отсутствуют обязательные аргументы");
-         }
-         else {
-            if(this.alarmCollection > 0 && this.alarmCollection.includes(time) === true){
-                console.warn('Уже присутствует звонок на это же время')
-            }else{
-                this.alarmCollection.push({time: time, callbackFunc: callback, canCall: true});
-            }
-
-         }
-         
-         
+        if( typeof time === "undefined" || typeof callbackFunc === "undefined" ){
+           throw new Error("Отсутствуют обязательные аргументы");
         }
-    
+        else {
+        for(let i=0; i< this.intervalId.length; i++){
+           if(this.intervalId[i].time === time){
+              return console.warn('Уже присутствует звонок на это же время');
+           }
+   
+       this.alarmCollection.push({time: time, callbackFunc: callback, canCall: true});
+        }
+   
+   
+       }
+   }
+
 
     removeClock(time){
         const result = this.alarmCollection.filter((time) => this.alarmCollection.time === time)
