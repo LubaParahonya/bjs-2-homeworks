@@ -5,18 +5,20 @@ class AlarmClock {
 
     }
 
-    addClock(time, callback){
-         if( typeof time === "undefined" || typeof callback === "undefined" ){
+    addClock(time, callbackFunc){
+         if( typeof time === "undefined" || typeof callbackFunc === "undefined" ){
             throw new Error("Отсутствуют обязательные аргументы");
          }
+         else {
          for(let i=0; i< this.intervalId.length; i++){
             if(this.intervalId[i].time === time){
                return console.warn('Уже присутствует звонок на это же время');
             }
          }
          
-         this.alarmCollection.push({time: time, callback: callback, canCall: true});
+         this.alarmCollection.push({time: time, callbackFunc: callback, canCall: true});
         }
+    }
 
     removeClock(time){
         const result = this.alarmCollection.filter((time) => this.alarmCollection.time === time)
