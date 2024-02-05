@@ -14,9 +14,11 @@ class AlarmClock {
             if(this.intervalId[i].time === time){
                return console.warn('Уже присутствует звонок на это же время');
             }
+
+        this.alarmCollection.push({time: time, callbackFunc: callback, canCall: true});
          }
          
-         this.alarmCollection.push({time: time, callbackFunc: callback, canCall: true});
+         
         }
     }
 
