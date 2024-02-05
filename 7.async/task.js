@@ -10,12 +10,16 @@ class AlarmClock {
             throw new Error("Отсутствуют обязательные аргументы");
          }
          else {
-         for(let i=0; i< this.intervalId.length; i++){
+         /*for(let i=0; i< this.intervalId.length; i++){
             if(this.intervalId[i].time === time){
                return console.warn('Уже присутствует звонок на это же время');
+            }*/
+            if(this.alarmCollection > 0 && this.alarmCollection.includes(time) === true){
+                console.warn('Уже присутствует звонок на это же время')
+            }else{
+                this.alarmCollection.push({time: time, callbackFunc: callback, canCall: true});
             }
 
-        this.alarmCollection.push({time: time, callbackFunc: callback, canCall: true});
          }
          
          
