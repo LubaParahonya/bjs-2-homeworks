@@ -5,8 +5,8 @@ class AlarmClock {
 
     }
 
-    addClock(time, callbackFunc){
-        if( typeof time === "undefined" || typeof callbackFunc === "undefined" ){
+    addClock(time, callback){
+        if( typeof time === "undefined" || typeof callback === "undefined" ){
            throw new Error("Отсутствуют обязательные аргументы");
         }
         else {
@@ -14,7 +14,7 @@ class AlarmClock {
         console.warn('Уже присутствует звонок на это же время')
        } 
        else{
-        this.alarmCollection.push({time: time, callbackFunc: callback, canCall: true});
+        this.alarmCollection.push({time: time, callback: callback, canCall: true});
        }
    
        }
