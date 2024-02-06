@@ -22,16 +22,17 @@ class AlarmClock {
 
 
     removeClock(time){
-        const result = this.alarmCollection.filter((time) => this.alarmCollection.time === time)
-        const addClock = this.alarmCollection.indexOf(result);
+        const result = this.alarmCollection.filter((item) => item.time === time)
+        for(let i = 0; i < result.length; i++){
+            const addClock = this.alarmCollection.indexOf(result[i]);
             if(addClock > 0){
                 this.alarmCollection.splice(addClock, 1);
             }
-      
+        }
         }
 
     getCurrentFormattedTime(){
-        const currentTime = new Date().toLocaleDateString();
+        const currentTime = new Date().toLocaleDateString().substr(0, 5);
         return currentTime;
 
     }
@@ -39,19 +40,29 @@ class AlarmClock {
     start(){
         if(this.intervalId !== undefined){
             return;
+        }else{
+            setInterval(() => {
+                const currentTime = new Date().toLocaleDateString()
+                this.alarmCollection.forEach(DataTransferItem => {
+                    if(item.time === currentTime && item.canCall === true){
+                        item.canCall = false
+                        item.callback()
+                    }
+                });  
+            }, 1000)
         }
-
 
     }
 
     stop(){
+        
         clearInterval(this.intervalId)
         this.intervalId = null
 
     }
 
     resetAllCalls(){
-        forEach((canCall) => canCall => true )
+        this.alarmCollection.forEach((item) => item.canCall = true )
 
     }
 
