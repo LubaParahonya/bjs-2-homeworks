@@ -122,10 +122,10 @@ class Student {
   }
 
   getAverageBySubject(){
-    if(this.marks.hasOwnProperty(this.subject) === false){ 
+    if(this.marks.hasOwnProperty(subject) === false){ 
       return 0
     }
-      let markArr =  this.marks[this.subject]
+      let markArr =  this.marks[subject]
       let average = markArr.reduce((acc, item, index, arr) =>
     {
       acc += item;
