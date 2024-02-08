@@ -140,8 +140,8 @@ class Student {
 
   getAverage(){
     let keyArr = Object.keys(this.marks)
-    keyArr.reduce((acc, item) => {
-     averageMarks =  acc += this.getAverageBySubject(item) / keyArr.length
+    const averageMarks= keyArr.reduce((acc, item) => {
+      acc += this.getAverageBySubject(item) / keyArr.length
     })
     return averageMarks
   }
