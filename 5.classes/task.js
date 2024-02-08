@@ -93,7 +93,7 @@ class Library {
 giveBookByName(bookName){
     for(let i = 0; i< this.books.length; i++){
       if(this.books[i].name === bookName){
-        let returnBook = this.books.splice(i, 1)
+        let returnBook = this.books.splice(i, 1)[0]
         return returnBook
       }
     }
@@ -111,14 +111,12 @@ class Student {
 
 
   addMark(mark, subject) {
-    this.mark = mark
-    this.subject = subject
-    if(2 <= this.mark <= 5){
-    if(this.marks.hasOwnProperty(this.subject) === false){
-      this.marks[this.subject] = []
-      this.marks[this.subject].push(this.mark)
+    if(2 <= mark && mark <= 5){
+    if(this.marks.hasOwnProperty(subject) === false){
+      this.marks[subject] = []
+      this.marks[subject].push(mark)
     } else {
-      this.marks[this.subject].push(this.mark)
+      this.marks[subject].push(mark)
     }
     }
   }
@@ -143,7 +141,8 @@ class Student {
   getAverage(){
     let keyArr = Object.keys(this.marks)
     keyArr.reduce((acc, item) => {
-     return  acc += getAverageBySubject(item) / keyArr.length
+     averageMarks =  acc += this.getAverageBySubject(item) / keyArr.length
     })
+    return averageMarks
   }
 }
