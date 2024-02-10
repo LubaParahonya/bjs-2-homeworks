@@ -6,7 +6,7 @@ class AlarmClock {
     }
 
     addClock(time, callback){
-        if(time ==! null && callback ==! null){
+        if(time !== null && callback !== null){
             this.alarmCollection.push({time: time, callback: callback, canCall: true});
            if(this.alarmCollection.some((arr) => arr[time] === time) === true){
             console.warn('Уже присутствует звонок на это же время')
