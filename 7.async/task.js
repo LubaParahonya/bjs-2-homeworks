@@ -12,9 +12,9 @@ class AlarmClock {
             console.warn('Уже присутствует звонок на это же время')
             }
           } 
-        else {
+       
            throw new Error("Отсутствуют обязательные аргументы");
-        }
+        
    }
 
 
