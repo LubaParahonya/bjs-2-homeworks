@@ -6,45 +6,33 @@ class AlarmClock {
     }
 
     addClock(time, callback){
-        if( typeof time === "undefined" || typeof callback === "undefined" ){
+        if(time ==! null && callback ==! null){
+            this.alarmCollection.push({time: time, callback: callback, canCall: true});
+           if(this.alarmCollection.some((arr) => arr[time] === time) === true){
+            console.warn('Уже присутствует звонок на это же время')
+            }
+          } 
+        else {
            throw new Error("Отсутствуют обязательные аргументы");
         }
-        else {
-       if(this.alarmCollection > 0 && this.alarmCollection.includes(time) === true){
-        console.warn('Уже присутствует звонок на это же время')
-       } 
-       else{
-        this.alarmCollection.push({time: time, callback: callback, canCall: true});
-       }
-   
-       }
    }
 
 
-    removeClock(time){
-        const result = this.alarmCollection.filter((item) => item.time === time)
-        for(let i = 0; i < result.length; i++){
-            const addClock = this.alarmCollection.indexOf(result[i]);
-            if(addClock > 0){
-                this.alarmCollection.splice(addClock, 1);
-            }
-        }
+    removeClock(time){ 
+        this.alarmCollection = this.alarmCollection.filter((item) => item.time !== time)
         }
 
     getCurrentFormattedTime(){
-        const currentTime = new Date().toLocaleDateString().substr(0, 5);
-        return currentTime;
+        const date = new Date()
+        return date.toLocaleTimeString().substr(0, 5);
 
     }
 
     start(){
-        if(this.intervalId !== undefined){
-            return;
-        }else{
+        if(this.intervalId === null){  
             setInterval(() => {
-                const currentTime = new Date().toLocaleDateString()
-                this.alarmCollection.forEach(DataTransferItem => {
-                    if(item.time === currentTime && item.canCall === true){
+                this.alarmCollection.forEach(item => {
+                    if(item.time === item.getCurrentFormattedTime() && item.canCall === true){
                         item.canCall = false
                         item.callback()
                     }
@@ -56,7 +44,7 @@ class AlarmClock {
 
     stop(){
         
-        clearInterval(this.intervalId)
+        this.clearInterval(this.intervalId)
         this.intervalId = null
 
     }
