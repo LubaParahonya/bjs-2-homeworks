@@ -121,7 +121,7 @@ class Student {
     }
   }
 
-  getAverageBySubject(){
+  getAverageBySubject(subject){
     if(this.marks.hasOwnProperty(subject) === false){ 
       return 0
     }
@@ -141,8 +141,8 @@ class Student {
   getAverage(){
     let keyArr = Object.keys(this.marks)
     const averageMarks= keyArr.reduce((acc, item) => {
-      acc += this.getAverageBySubject(item) / keyArr.length
-    })
-    return averageMarks
+       return acc += this.getAverageBySubject(item)
+    }, 0)
+    return averageMarks / keyArr.length
   }
 }
